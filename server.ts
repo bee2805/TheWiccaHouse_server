@@ -38,20 +38,20 @@ app.get("/", (req, res) => {
 // Inventory CRUD operations
 // TODO: Change responses!
 // Create
-app.post("/addInventory", async (req, res) => {
+app.post("/inventory", async (req, res) => {
     const { image, name, category, quantity } = req.body;
     const inventory = await InventoryModel.create({ image, name, category, quantity });
     res.send(inventory);
 })
 
 // Read
-app.get("/readInventory", async (req, res) => {
+app.get("/inventory", async (req, res) => {
     const inventory = await InventoryModel.find({});
     res.send(inventory);
 })
 
 // Update
-app.put("/updateInventory/:id", async (req, res) => {
+app.put("/inventory/:id", async (req, res) => {
     const { id } = req.params;
     const { quantity } = req.body;
 
@@ -60,7 +60,7 @@ app.put("/updateInventory/:id", async (req, res) => {
 })
 
 // Delete
-app.delete("/deleteInventory/:id", async (req, res) => {
+app.delete("/inventory/:id", async (req, res) => {
     const { id } = req.params;
 
     const inventory = await InventoryModel.findByIdAndDelete(id);
