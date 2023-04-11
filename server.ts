@@ -7,7 +7,7 @@ import bcrypt from 'bcryptjs';
 // imported models
 import { InventoryModel } from "./models/inventory";
 import { UserModel } from "./models/user";
-import { Recipe, RecipeModel } from "./models/recipes";
+import { RecipeModel } from "./models/recipes";
 
 // NOTES: 
 // - Nodemon re-runs server as it detects changes
