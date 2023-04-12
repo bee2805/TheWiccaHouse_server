@@ -85,7 +85,6 @@ app.get("/", (req, res) => {
 })
 
 // Inventory CRUD operations
-// TODO: Change responses!
 
 // just to add to db
 // Create inventory item
@@ -122,7 +121,7 @@ app.put("/inventory/:id", async (req, res) => {
 //             ingredients: [
 //                 {inventoryId: "6432a058e916419be87e6f69", amountNeeded: 2},
 //                 {inventoryId: "6432a2efe916419be87e6f85", amountNeeded: 3},
-//                 {inventoryId: "64329d89e916419be87e6f46", amountNeeded: 1},
+//                 {inventoryId: "6436a9f7c3137593758e5ec5", amountNeeded: 1},
 //                 {inventoryId: "6432a0b0e916419be87e6f6f", amountNeeded: 1},
 //                 {inventoryId: "6432a12ae916419be87e6f76", amountNeeded: 1},
 //                 {inventoryId: "64329fa6e916419be87e6f60", amountNeeded: 2}
@@ -150,7 +149,7 @@ app.put("/inventory/:id", async (req, res) => {
 //             ingredients: [
 //                 {inventoryId: "6432a074e916419be87e6f6b", amountNeeded: 2},
 //                 {inventoryId: "6432a0c8e916419be87e6f71", amountNeeded: 3},
-//                 {inventoryId: "64329d89e916419be87e6f46", amountNeeded: 1},
+//                 {inventoryId: "6436a9f7c3137593758e5ec5", amountNeeded: 1},
 //                 {inventoryId: "6432a0b0e916419be87e6f6f", amountNeeded: 1},
 //                 {inventoryId: "6432d1b2aadf367c9b19d843", amountNeeded: 3},
 //                 {inventoryId: "64329fa6e916419be87e6f60", amountNeeded: 1}
@@ -246,7 +245,7 @@ app.put("/inventory/:id", async (req, res) => {
 //             description: "The Potion of Desire is a rare and powerful elixir that can grant the drinker any one wish of their choosing. The potion can tap into the user's deepest desires and manifest them into reality. The drinker cannot wish for more wishes.",
 //             amount: 0,
 //             ingredients: [
-//                 {inventoryId: "64329d89e916419be87e6f46", amountNeeded: 3},
+//                 {inventoryId: "6436a9f7c3137593758e5ec5", amountNeeded: 3},
 //                 {inventoryId: "64329fa6e916419be87e6f60", amountNeeded: 1},
 //                 {inventoryId: "64329fe0e916419be87e6f63", amountNeeded: 3},
 //                 {inventoryId: "6432a12ae916419be87e6f76", amountNeeded: 2},
@@ -281,7 +280,7 @@ app.get('/recipes', async (req, res) => {
                     // get inventory data for each ingridient
                     const inventory = await InventoryModel.findById(ingredient.inventoryId).exec();
                     // get amount available from inventory
-                    const amount = inventory!.quantity
+                    const amount = inventory?.quantity
     
                     // check if there is not enough
                     if(!amount || amount < ingredient.amountNeeded!){
